@@ -65,9 +65,11 @@ class FileDrive extends Plugin
 
         $page = $page . " <script>
 							var str = document.getElementById(\"nav\").innerHTML;
-	 						var newstr =  \"Home</a></li><li><a " .
-            				"style=\\\"background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnMAABJzAYwiuQcAAAGgSURBVDhPpVI9TwJBEJ3bO4+EBEyURDkM/wELkVpttMAGC/kddGBIsKLESn8DIQEqSmw0akeUHgyEBBJJPL5h3BlPwC+M+pJ3Nzs7b2Z2ZxVEhP9AWP+/gzp4Yyx2Qu0sZPg4LENnmqmRz+dR15aw/dTGy2IRH6tVrFQqWC6X8eH+ntloNFBXNTxNJKTkQ4K9nV3cMDy0wZVsNhsWCgVez2PT50P32jqZ7xOQ6DAYpA2MRCKchCiEwFwux35CLBplv8TnBHSMecTj8WkiYqlUwlqtxnY2m6UQacnPwf4+rq6skONLJJNJFqXTaV77t/xouN1kAr8DRVEwsB2A0FEIzGdTxs6gqio4nQ7JZWi1mjAajeDq+hoymQwVl0orgaoIGOPEki0GPR6KvLg4B3GWSlF7MJqMp/fxkYPBAORI2W42m7IQgpwE3N7cgVA1jfTfol6vg67r4PV6weFwgMvl4mPI6YAmtT8+ZapKsNvt3AmJiHKD/aLX7bHxHQzD4CSmaUK/34fhcMj+Tq8L3U7ntYLHbfCYfkPB92+N8e8AeAG4Mn7bHv/bxAAAAABJRU5ErkJggg==');\\\""
-            			. "href=\\\"/fd/FileDrive.php\\\">FileDrive</a></li>\";
+	 						var newstr =  \"Home</a></li><li><a "
+            				."style=\\\"background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnMAABJzAYwiuQcAAAGgSURBVDhPpVI9TwJBEJ3bO4+EBEyURDkM/wELkVpttMAGC/kddGBIsKLESn8DIQEqSmw0akeUHgyEBBJJPL5h3BlPwC+M+pJ3Nzs7b2Z2ZxVEhP9AWP+/gzp4Yyx2Qu0sZPg4LENnmqmRz+dR15aw/dTGy2IRH6tVrFQqWC6X8eH+ntloNFBXNTxNJKTkQ4K9nV3cMDy0wZVsNhsWCgVez2PT50P32jqZ7xOQ6DAYpA2MRCKchCiEwFwux35CLBplv8TnBHSMecTj8WkiYqlUwlqtxnY2m6UQacnPwf4+rq6skONLJJNJFqXTaV77t/xouN1kAr8DRVEwsB2A0FEIzGdTxs6gqio4nQ7JZWi1mjAajeDq+hoymQwVl0orgaoIGOPEki0GPR6KvLg4B3GWSlF7MJqMp/fxkYPBAORI2W42m7IQgpwE3N7cgVA1jfTfol6vg67r4PV6weFwgMvl4mPI6YAmtT8+ZapKsNvt3AmJiHKD/aLX7bHxHQzD4CSmaUK/34fhcMj+Tq8L3U7ntYLHbfCYfkPB92+N8e8AeAG4Mn7bHv/bxAAAAABJRU5ErkJggg==');\\\""
+            			    . "href=\\\"".
+                            ROOT_PATH
+                            ."fd/FileDrive.php\\\">FileDrive</a></li>\";
  							var res = str.replace(\"Support Center Home</a></li>\", newstr	);
  							document.getElementById(\"nav\").innerHTML = res;
     						</script>  ";
@@ -79,10 +81,10 @@ class FileDrive extends Plugin
      */
     public function createAdminMenu()
     {
-        Application::registerAdminApp('FileDrive', "/fd/", array(
+        Application::registerAdminApp('FileDrive', ROOT_PATH."fd/", array(
             iconclass => 'logs',
         ));
-        Application::registerAdminApp('FileDrive - Embebed', "/fd/FileDrive.php", array(
+        Application::registerAdminApp('FileDrive - Embebed', ROOT_PATH."/fd/FileDrive.php", array(
             iconclass => 'faq-categories ',
         ));
     }
@@ -92,10 +94,10 @@ class FileDrive extends Plugin
      */
     public function createStaffMenu()
     {
-        Application::registerStaffApp('FileDrive', "/fd/", array(
+        Application::registerStaffApp('FileDrive', ROOT_PATH."fd/", array(
             iconclass => 'logs',
         ));
-        Application::registerStaffApp('FileDrive - Embebed', "/fd/FileDrive.php", array(
+        Application::registerStaffApp('FileDrive - Embebed', ROOT_PATH."fd/FileDrive.php", array(
             iconclass => 'faq-categories',
         ));
     }
@@ -106,10 +108,10 @@ class FileDrive extends Plugin
      */
     public function createClientMenu()
     {
-        Application::registerClientApp('FileDrive', '/fd/', array(
+        Application::registerClientApp('FileDrive',ROOT_PATH.'fd/', array(
             iconclass => 'logs',
         ));
-        Application::registerClientApp('FileDrive - Embebed', "/fd/FileDrive.php", array(
+        Application::registerClientApp('FileDrive - Embebed', ROOT_PATH."fd/FileDrive.php", array(
             iconclass => 'faq-categories',
         ));
     }

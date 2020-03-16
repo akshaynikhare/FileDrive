@@ -2,6 +2,11 @@
 osTicket Plugin: Integrate file sharing facilities like google Drive ,OneDrive, Dropbox
 
 ## How it looks
+![guest](fd/DirRoot/preview_images/guest.jpg)
+
+![menu](fd/DirRoot/preview_images/menu.jpg)
+
+![staff_admin](fd/DirRoot/preview_images/staff_admin.jpg)
 
 
 ## Installation
@@ -19,8 +24,8 @@ osTicket Plugin: Integrate file sharing facilities like google Drive ,OneDrive, 
     * OsTicket_DIR  `/fd`
 
 
-##TODO
+## TODO
 1. fix the error on cron job 
 ---
-thanx to [tinyfilemanager](https://github.com/prasathmani/tinyfilemanager) 
+thank to [tinyfilemanager](https://github.com/prasathmani/tinyfilemanager) 
 

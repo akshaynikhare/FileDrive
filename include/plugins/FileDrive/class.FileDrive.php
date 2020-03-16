@@ -43,10 +43,12 @@ class FileDrive extends Plugin
 
         //This will run after everything else, empties the buffer and runs our code over the HTML
         //Then we send it to the browser as though nothing changed..
-        register_shutdown_function(
-            function () {
-                FileDrive::shutdownHandler();
+         if($config->get('FileDrive_guest_enable')){
+             register_shutdown_function(
+                function () {
+                    FileDrive::shutdownHandler();
             });
+         }
 
     }
 
@@ -61,8 +63,8 @@ class FileDrive extends Plugin
            return;
         }
         
-        $page = ob_get_clean();
 
+        $page = ob_get_clean();
         $page = $page . " <script>
 							var str = document.getElementById(\"nav\").innerHTML;
 	 						var newstr =  \"Home</a></li><li><a "
@@ -74,6 +76,8 @@ class FileDrive extends Plugin
  							document.getElementById(\"nav\").innerHTML = res;
     						</script>  ";
         print $page;
+
+
     }
 
     /**
@@ -94,9 +98,9 @@ class FileDrive extends Plugin
      */
     public function createStaffMenu()
     {
-        Application::registerStaffApp('FileDrive', ROOT_PATH."fd/", array(
+       /* Application::registerStaffApp('FileDrive', ROOT_PATH."fd/", array(
             iconclass => 'logs',
-        ));
+        ));*/
         Application::registerStaffApp('FileDrive - Embebed', ROOT_PATH."fd/FileDrive.php", array(
             iconclass => 'faq-categories',
         ));
@@ -108,9 +112,9 @@ class FileDrive extends Plugin
      */
     public function createClientMenu()
     {
-        Application::registerClientApp('FileDrive',ROOT_PATH.'fd/', array(
+       /* Application::registerClientApp('FileDrive',ROOT_PATH.'fd/', array(
             iconclass => 'logs',
-        ));
+        ));*/
         Application::registerClientApp('FileDrive - Embebed', ROOT_PATH."fd/FileDrive.php", array(
             iconclass => 'faq-categories',
         ));

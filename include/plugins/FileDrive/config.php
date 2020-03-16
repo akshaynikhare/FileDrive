@@ -4,12 +4,12 @@ class FileDriveConfig extends PluginConfig
     public function getOptions()
     {
 
-        $_configs['FileDrive_root'] = new TextboxField(
+     /*   $_configs['FileDrive_root'] = new TextboxField(
             [
                 'configuration' => array('size' => 60, 'length' => 255),
                 'required' => true,
                 'label' => __('Root path'),
-                'default' => dirname(__file__) . '\DirRoot',
+                'default' => 'fd/DirRoot',
                 'hint' => __('Enter the path of root folder'),
             ]);
 
@@ -17,14 +17,15 @@ class FileDriveConfig extends PluginConfig
             [
                 'configuration' => array('size' => 60, 'length' => 255),
                 'required' => true,
-                'label' => __('client panel'),
-                'hint' => __('Enable in client panel'),
+                'label' => __('Language'),
+                'hint' => __('Language'),
                 'default' => 'en',
                 'choices' => [
                     'en' => 'English',
 
                 ],
             ]);
+            */
         $_configs['FileDrive_Admin_enable'] = new BooleanField(
             [
                 'label' => __('Admin panel'),
@@ -44,7 +45,13 @@ class FileDriveConfig extends PluginConfig
                 'default' => '1',
                 'hint' => __('Enable in client panel'),
             ]);
-
+        $_configs['FileDrive_guest_enable'] = new BooleanField(
+            [
+                'label' => __('Guest panel'),
+                'default' => '1',
+                'hint' => __('Enable in guest panel'),
+            ]);
+/*
         $_configs['FileDrive_show_hidden'] = new BooleanField(
             [
                 'label' => __('Hidden Files'),
@@ -69,42 +76,24 @@ class FileDriveConfig extends PluginConfig
                 'default' => '1',
                 'hint' => __('calculate folder size when browsing folders'),
             ]);
-
+*/
         return $_configs;
-
-        /*
-    return array(
-    new BooleanField(array(
-    'id' => 'equipment_backend_enable',
-    'label' => 'Enable Backend',
-    'configuration' => array(
-    'desc' => 'Staff backend interface')
-    )),
-    'equipment_frontend_enable' => new BooleanField(array(
-    'id' => 'equipment_frontend_enable',
-    'label' => 'Enable Frontend',
-    'configuration' => array(
-    'desc' => 'Client facing interface')
-    )),
-    );
-
-     */
     }
 
 /// A chance to check the settings before saving
     public function pre_save(&$config, &$errors)
     {
         global $msg;
-
+/*
         if ($config['FileDrive_root'] === "") {
             // Validate the settings ?
             $errors['err'] = 'Root path can not be Empty'; // example only
             return false;
-        } elseif (!is_dir($config['FileDrive_root'])) {
-            $errors['err'] = 'Root Directory ( ' . $config['FileDrive_root'] . ' ) does not exist.'; // example only
+        } elseif (!is_dir(dirname(__file__) . $config['FileDrive_root'])) {
+            $errors['err'] = 'Root Directory ( ' .dirname(__file__) .  $config['FileDrive_root'] . ' ) does not exist.'; // example only
             return false;
         }
-
+*/
         if (!$errors) {
             $msg = 'Configuration updated successfully'; // This is the default, and doesn't need to be set.
         }

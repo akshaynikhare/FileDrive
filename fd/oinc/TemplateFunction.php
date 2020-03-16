@@ -11,7 +11,7 @@ function fm_show_nav_path($path)
     global $lang, $sticky_navbar;
     $isStickyNavBar = $sticky_navbar ? 'fixed-top' : '';
     ?>
-    <nav class="navbar navbar-expand-lg navbar-light bg-white mb-4 main-nav <?php echo $isStickyNavBar ?>">
+    <nav class="navbar navbar-expand-sm navbar-light bg-white mb-4 main-nav <?php echo $isStickyNavBar ?>">
         
 
         <a class="navbar-brand" href="?p="> <?php echo lng('AppTitle') ?> </a>
@@ -20,24 +20,9 @@ function fm_show_nav_path($path)
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-            <?php
-            $path = fm_clean_path($path);
-            $root_url = "<a href='?p='><i class='fa fa-home' aria-hidden='true' title='" . FM_ROOT_PATH . "'></i></a>";
-            $sep = '<i class="bread-crumb"> / </i>';
-            if ($path != '') {
-                $exploded = explode('/', $path);
-                $count = count($exploded);
-                $array = array();
-                $parent = '';
-                for ($i = 0; $i < $count; $i++) {
-                    $parent = trim($parent . '/' . $exploded[$i], '/');
-                    $parent_enc = urlencode($parent);
-                    $array[] = "<a href='?p={$parent_enc}'>" . fm_enc(fm_convert_win($exploded[$i])) . "</a>";
-                }
-                $root_url .= $sep . implode($sep, $array);
-            }
-            echo '<div class="col-xs-6 col-sm-5">' . $root_url . '</div>';
-            ?>
+
+
+<div class="col-xs-6 col-sm-5"></div>
 
             <div class="col-xs-6 col-sm-7 text-right">
                 <ul class="navbar-nav mr-auto float-right">

@@ -1,6 +1,12 @@
 <?php
-$CONFIG = '{"lang":"en","error_reporting":true,"show_hidden":true,"hide_Cols":true,"calc_folder":true}';
+$CONFIG = '{    "lang":"en",
+                "error_reporting":true,
+                "show_hidden":true,
+                "hide_Cols":true,
+                "calc_folder":true}';
+define('FM_READONLY', false);
 require('oinc/function.php');
+
 
 
 
@@ -23,7 +29,7 @@ $root_path =  'DirRoot';
 
 // Root url for links in file manager.Relative to $http_host. Variants: '', 'path/to/subfolder'
 // Will not working if $root_path will be outside of server document root
-$root_url = 'fd/DirRoot/';
+$root_url = 'ostickets_test1/fd/DirRoot';
 
 // Server hostname. Can set manually if wrong
 $http_host = $_SERVER['HTTP_HOST'];

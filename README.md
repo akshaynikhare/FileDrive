@@ -6,7 +6,7 @@ osTicket Plugin: Integrate file sharing facilities like google Drive ,OneDrive, 
 
 ![menu](fd/DirRoot/preview_images/menu.jpg)
 
-![staff_admin](fd/DirRoot/preview_images/staff_admin.jpg)
+![staff_admin](fd/DirRoot/preview_images/staff_admin.jpg) 
 
 
 ## Installation

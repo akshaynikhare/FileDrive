@@ -88,7 +88,7 @@ class FileDrive extends Plugin
         Application::registerAdminApp('FileDrive', ROOT_PATH."fd/", array(
             iconclass => 'logs',
         ));
-        Application::registerAdminApp('FileDrive - Embebed', ROOT_PATH."/fd/FileDrive.php", array(
+        Application::registerAdminApp('FileDrive - Embebed', ROOT_PATH."fd/FileDrive.php?p=", array(
             iconclass => 'faq-categories ',
         ));
     }
@@ -127,7 +127,7 @@ class FileDrive extends Plugin
      */
     public function firstRun()
     {
-
+       return ((!file_exists(ROOT_DIR."fd/index.php"))==1);
     }
     public function needUpgrade()
     {
@@ -145,9 +145,46 @@ class FileDrive extends Plugin
     public function configureFirstRun()
     {
 
+        // if (!file_exists(ROOT_DIR."fd/index.php")){
+        //         die("<br>FD Dir do not exist<br>");
+        // }
+
+        //echo "____--___".dirname(__DIR__)."/FileDrive/_copy_to_root/fd/index.php"."____--____";
+        
+        if (!file_exists(dirname(__DIR__)."/FileDrive/_copy_to_root/fd/index.php")){
+                    die("<br>Get techinical help from plugin Supplier \" FileDrive \"<br>");
+         }
+         $page = ob_get_clean();
+         echo "<br> Setting up first use of plugin FileDrive<br>";
+         echo " reload this page if see this<br><br>";
+         
+         $this->recurse_copy(dirname(__DIR__)."/FileDrive/_copy_to_root/fd/",ROOT_DIR."fd/");
+         
+         header("Location: ".ROOT_DIR."fd/index.php"); 
+         exit(); 
+        
+        
         return true;
     }
 
+   /**
+     * copy root files to OSticket root
+     */
+    function recurse_copy($src,$dst) { 
+        $dir = opendir($src); 
+        @mkdir($dst); 
+        while(false !== ( $file = readdir($dir)) ) { 
+            if (( $file != '.' ) && ( $file != '..' )) { 
+                if ( is_dir($src . '/' . $file) ) { 
+                    $this->recurse_copy($src . '/' . $file,$dst . '/' . $file); 
+                } 
+                else { 
+                    copy($src . '/' . $file,$dst . '/' . $file); 
+                } 
+            } 
+        } 
+        closedir($dir); 
+    } 
     /**
      * Kicks off database installation scripts
      *

@@ -4,6 +4,10 @@ class FileDriveConfig extends PluginConfig
     public function getOptions()
     {
 
+
+        // if (!file_exists(ROOT_DIR."fd/index.php")){
+        //         die("<br>FD Dir do not exist<br>");
+        // }
      /*   $_configs['FileDrive_root'] = new TextboxField(
             [
                 'configuration' => array('size' => 60, 'length' => 255),
@@ -77,6 +81,7 @@ class FileDriveConfig extends PluginConfig
                 'hint' => __('calculate folder size when browsing folders'),
             ]);
 */
+   
         return $_configs;
     }
 

@@ -151,8 +151,13 @@ class FileDrive extends Plugin
 
         //echo "____--___".dirname(__DIR__)."/FileDrive/_copy_to_root/fd/index.php"."____--____";
         
-        if (!file_exists(dirname(__DIR__)."/FileDrive/_copy_to_root/fd/index.php")){
-                    die("<br>Get techinical help from plugin Supplier \" FileDrive \"<br>");
+         if (!file_exists(dirname(__DIR__)."/FileDrive/_copy_to_root/fd/index.php")){
+            
+                    die("<strong>File Drive :</strong>".
+                        "<br><br>please make sure that the Plugin folder is named \"FileDrive\"".
+                        "<br>if you still need help please contact auther <strong><a href=\"https://github.com/akshaynikhare\" target=\"_blank\">Akshay Nikhare<a></strong>".
+                        "<br>or Create an issue at Github <a href=\"https://github.com/akshaynikhare/FileDrive/issues\" target=\"_blank\">FileDrive/issues<a><strong>".
+                        "<br>");
          }
          $page = ob_get_clean();
          echo "<br> Setting up first use of plugin FileDrive<br>";

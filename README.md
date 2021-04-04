@@ -13,12 +13,13 @@ osTicket Plugin: Integrate file sharing facilities like google Drive ,OneDrive, 
   
 ## Installation
 1. Extract all files in OSTicket "FileDrive" directory.
-2. Paste/Move the "FileDrive" directory into folder ``Osticket Root > include > plugin ``
-2. configure file Drive **"fd-config.php"**  _`(this is temporary version , after some version all setting can be configured form the plugin section of OStickets.)`_
-3. Navigate to: https://your.domain/support/scp/plugins.php?a=add to add a new plugin.
-4. Click "Install" next to "FileDrive"
-5. Now the plugin needs to be enabled & configured, so you should be seeing the list of currently installed plugins, pick the checkbox next to "FileDrive" and select the "Enable" button.
-6. Now you can configure the plugin, click the link "FileDrive" and choose who the plugin should be activated for, or keep the default.
+2. Make sure the plugin Director is named "FileDrive" (this is important).
+3. Paste/Move the "FileDrive" directory into folder ``Osticket Root > include > plugin ``
+4. configure file Drive **"fd-config.php"**  _`(this is temporary version , after some version all setting can be configured form the plugin section of OStickets.)`_
+5. Navigate to: https://your.domain/support/scp/plugins.php?a=add to add a new plugin.
+6. Click "Install" next to "FileDrive"
+7. Now the plugin needs to be enabled & configured, so you should be seeing the list of currently installed plugins, pick the checkbox next to "FileDrive" and select the "Enable" button.
+8. Now you can configure the plugin, click the link "FileDrive" and choose who the plugin should be activated for, or keep the default.
 
 ## UnInstallation
 1. Navigate to admin plugins view, click the checkbox and push the "Delete" button.
